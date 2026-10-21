@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vicky Kumar | Portfolio</title>
+<meta name="description" content="Portfolio of Vicky Kumar, B.Tech CSE (AI &amp; ML) student. Projects, certificates and contact.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04050d;--ink:#f1f2ff;--mute:#a3a7cc;--edge:#2a2e52;--glass:rgba(6,7,18,.8);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.75 "Plus Jakarta Sans",system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid #35c9c1;outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:"Space Grotesk",sans-serif;font-weight:700;margin:0;line-height:1.1}
+#sky{position:fixed;inset:0;z-index:0;background:radial-gradient(1px 1px at 12% 18%,#fff9 50%,#0000),radial-gradient(1px 1px at 78% 8%,#fff 50%,#0000),radial-gradient(1.5px 1.5px at 46% 32%,#fff8 50%,#0000),radial-gradient(1px 1px at 90% 44%,#fff9 50%,#0000),radial-gradient(1px 1px at 22% 62%,#fff8 50%,#0000),radial-gradient(1.5px 1.5px at 64% 78%,#fff9 50%,#0000),radial-gradient(1px 1px at 8% 90%,#fff8 50%,#0000);background-size:520px 520px}
+#rig{position:fixed;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;perspective:1200px;pointer-events:none}
+#board{display:grid;grid-template-columns:repeat(5,var(--k));gap:calc(var(--k)*.2);padding:calc(var(--k)*.28);background:#14162b;border-radius:20px;--k:clamp(46px,9.5vw,82px);box-shadow:0 18px 0 #0a0b18,0 50px 80px #000c;transform-style:preserve-3d;will-change:transform;pointer-events:none}
+.key{pointer-events:auto;width:var(--k);height:var(--k);border:0;border-radius:12px;display:grid;place-items:center;font:700 calc(var(--k)*.24)/1 "Space Grotesk",sans-serif;color:#0d0f1c;background:var(--c);box-shadow:0 10px 0 var(--d),0 14px 14px #0008;cursor:pointer;text-decoration:none;transition:transform .12s,box-shadow .12s}
+.key:hover,.key:focus-visible{transform:translateY(8px);box-shadow:0 2px 0 var(--d),0 4px 6px #0008}
+#tip{opacity:0;transition:opacity .15s;pointer-events:none;position:fixed;z-index:3;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#0b0d20ee;border:1px solid var(--edge);border-radius:999px;padding:8px 20px;font-size:14px;color:var(--mute);white-space:nowrap;max-width:92vw;overflow:hidden;text-overflow:ellipsis}
+#tip.on{opacity:1}
+#tip b{color:var(--ink);font-family:"Space Grotesk"}
+nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) 5vw 12px}
+nav b{font:700 16px "Space Grotesk"}
+nav div{display:flex;gap:18px;font-size:14px}
+nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
+main{position:relative;z-index:2}
+section{min-height:100svh;padding:100px 5vw 60px;display:flex;flex-direction:column;justify-content:center}
+.col{max-width:560px;background:var(--glass);backdrop-filter:blur(6px);border:1px solid var(--edge);border-radius:16px;padding:28px}
+section.r{align-items:flex-end}
+section.c{align-items:center;text-align:center}
+.hero{flex-direction:row;align-items:center;justify-content:space-between;gap:24px;padding-top:90px}
+.hero h1{font-size:clamp(56px,10vw,136px);letter-spacing:-.03em;line-height:.95;text-shadow:0 4px 30px #000}
+.hero p{margin:22px 0 0;font-size:18px;color:#c3c6e6;text-shadow:0 2px 10px #000}
+h2{font-size:clamp(30px,4.6vw,48px);letter-spacing:-.015em;margin-bottom:16px}
+p{margin:0 0 14px;color:#c9ccea}
+.mutedline{color:var(--mute);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tags span{font-size:13px;padding:3px 12px;border-radius:999px;background:#1a1d3a;color:#c9cdf0}
+.proj{border-top:1px solid var(--edge);padding:18px 0}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj h3{font-size:22px;margin-bottom:6px}
+.proj p{margin-bottom:8px;font-size:15.5px}
+.links{display:flex;gap:16px;font-size:14px;font-weight:700;margin-top:8px}
+.links a{color:#35c9c1}
+.wide{max-width:760px}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;max-width:900px;background:var(--glass);border:1px solid var(--edge);border-radius:16px;padding:20px}
+.cert{border-top:4px solid var(--c);padding-top:10px}
+.cert b{display:block;font-size:14.5px;line-height:1.3}
+.cert span{font-size:13px;color:var(--mute)}
+.cert a{font-size:13px;color:#35c9c1;margin-left:6px}
+.me{width:clamp(210px,27vw,380px);height:auto;aspect-ratio:4/5;border-radius:22px;object-fit:cover;border:1px solid var(--edge);box-shadow:0 20px 60px #000}
+.go.alt{background:transparent;color:var(--ink);border:1px solid var(--edge)}
+.cert img{display:block;width:100%;height:auto;border-radius:6px;margin-bottom:8px;cursor:zoom-in;border:1px solid var(--edge)}
+#lb{position:fixed;inset:0;z-index:20;background:#000d;display:none;align-items:center;justify-content:center;padding:4vw;cursor:zoom-out}
+#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;border-radius:8px}
+form{text-align:left;display:grid;gap:12px}
+label{display:grid;gap:4px;font-size:14px;color:var(--mute)}
+input,textarea{font:inherit;color:var(--ink);background:#0d1026;border:1px solid var(--edge);border-radius:10px;padding:10px 12px;width:100%}
+.btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+button.go{border:0;cursor:pointer;font:inherit;font-weight:700;justify-self:start}
+footer{position:relative;z-index:2;text-align:center;color:var(--mute);font-size:14px;padding:30px 5vw 70px}
+.go{display:inline-block;padding:12px 24px;border-radius:999px;background:#ff8a3d;color:#1a0d02;font-weight:700;text-decoration:none;margin-top:8px}
+@media(max-width:700px){.hero{flex-direction:column-reverse;justify-content:center;align-items:flex-start}.me{width:170px}section.r{align-items:stretch}.col{max-width:none}nav div a:nth-child(n+4){display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<div id="rig"><div id="board"></div></div>
+<div id="tip" aria-live="polite"></div>
+<nav><b>Vicky Kumar</b><div><a href="#top">Home</a><a href="#about">About</a><a href="#work">Projects</a><a href="#certs">Certificates</a><a href="#contact">Contact</a></div></nav>
+
+<main id="top">
+<section class="hero">
+<div class="ht"><h1>Vicky<br>Kumar</h1>
+<p>B.Tech CSE (AI &amp; ML) student<br>ICPC Amritapuri Student Ambassador</p></div>
+<img class="me" src="assets/vicky.jpg" alt="Photo of Vicky Kumar" width="320" height="400">
+</section>
+
+<section id="about" class="r">
+<div class="col">
+<h2>About Me</h2>
+<p>I'm Vicky Kumar, a second-year B.Tech student in Computer Science (AI &amp; ML) at Rungta International Skills University (RISU'29). I build full-stack web apps and enjoy turning real problems into working software.</p>
+<p>I work with C++, Java, Python and JavaScript, and I build with React, Node.js and MongoDB. I practise data structures and algorithms regularly. I am an ICPC Amritapuri Student Ambassador and a 2nd Runner-up at HackStormXRIU.</p>
+<p>My projects cover a food nutrition guide, a GPS-based PG finder, a coding streak tracker and a civic complaints platform. I learn by building, I join hackathons, and I want to contribute to open source. I care about clean code, finishing what I start, and getting a little better every day.</p>
+<p>I am looking for internships and entry-level roles where I can grow as a software engineer.</p>
+<div class="tags"><span>2nd year B.Tech CSE (AIML)</span><span>Public speaker</span><span>2nd Runner-up, HackStormXRIU</span></div>
+</div>
+</section>
+
+<section id="work">
+<div class="col wide" style="margin-left:0">
+<h2>Projects</h2>
+<div class="proj"><h3>Aahaar</h3><p>A free nutrition guide for Indian food like dal, roti and paneer. 80+ foods, compare up to 3 foods, and a daily calorie, macro and BMI calculator. No framework used.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><div class="links"><a href="https://github.com/vickykumar03/AahaarCheck">Code</a></div></div>
+<div class="proj"><h3>PG Finder</h3><p>Helps students find PGs near their college using live GPS, a map, filters, reviews and an owner dashboard.</p><div class="tags"><span>React</span><span>Node.js</span><span>MongoDB</span><span>Leaflet</span></div><div class="links"><a href="https://pg-finder-4l6c.vercel.app">Live</a><a href="https://github.com/Vickykumar03/PG-Finder">Code</a></div></div>
+<div class="proj"><h3>StreakMaster</h3><p>Tracks your coding streak on 6 platforms and sends a reminder at 11 PM so you never lose it.</p><div class="tags"><span>React</span><span>Node.js</span><span>MongoDB</span><span>JWT</span></div><div class="links"><a href="https://streak-tracker-bice.vercel.app">Live</a><a href="https://github.com/Vickykumar03/Streak-Tracker">Code</a></div></div>
+<div class="proj"><h3>PrajaVani</h3><p>Citizens report road, water and power problems with GPS and photos. They can also vote on whether the work was really done.</p><div class="tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>JWT</span></div><div class="links"><a href="https://praja-vani.vercel.app">Live</a><a href="https://github.com/Vickykumar03/PrajaVani">Code</a></div></div>
+</div>
+</section>
+
+<section id="certs" class="r">
+<div>
+<h2 style="text-align:right;text-shadow:0 3px 20px #000">Certificates</h2>
+<div class="certs" id="certList"></div>
+</div>
+</section>
+
+<section id="contact" class="c">
+<div class="col">
+<h2>Get in touch</h2>
+<p>Open to internships and work. Send me a message and I will reply soon.</p>
+<form id="cf">
+<label>Name<input name="n" required autocomplete="name"></label>
+<label>Contact number<input name="p" type="tel" required autocomplete="tel"></label>
+<label>Email<input name="e" type="email" required autocomplete="email"></label>
+<label>Subject<input name="s" required></label>
+<label>Message<textarea name="m" rows="4" required></textarea></label>
+<button class="go" type="submit">Send message</button>
+<p class="mutedline" id="cfm">This opens your email app with the message ready to send to vickykumar22032006@gmail.com.</p>
+</form>
+<div class="btns"><a class="go alt" href="https://github.com/Vickykumar03">GitHub</a> <a class="go alt" href="https://www.linkedin.com/in/vicky-kumar-342566383">LinkedIn</a> <a class="go alt" href="mailto:vickykumar22032006@gmail.com">Email</a></div>
+</div>
+</section>
+</main>
+<div id="lb" role="dialog" aria-label="Certificate"><img alt=""></div>
+<footer>Open to internships and work · © 2026 Vicky Kumar</footer>
+
+<script>
+// Put your own links here. Keys with an empty link only show a tip.
+// Get a free key at https://web3forms.com (enter your email, they send the key). Paste it below.
+var FORM_KEY="0e22aa8d-063a-49c2-8809-f28bab4b863c";
+var LINKS={github:"https://github.com/Vickykumar03",linkedin:"https://www.linkedin.com/in/vicky-kumar-342566383",email:"vickykumar22032006@gmail.com"};
+var K=[
+["C","#ff8a3d","#a8501a","C","Learned from Univ. of Michigan and Coding Spoon"],
+["C++","#4f7cff","#2a47b0","C++","Main language for DSA"],
+["Java","#ff4d6d","#a32644","Java","Getting better at it"],
+["Py","#f5c518","#a88a0a","Python","Did the ATM mini project"],
+["DSA","#3ddc84","#1f8a50","DSA","Practice for ICPC"],
+["HTML","#ff8a3d","#a8501a","HTML","Course by IBM"],
+["CSS","#35c9c1","#1a7e78","CSS","Grid, Flexbox, animations"],
+["JS","#f5c518","#a88a0a","JavaScript","Vanilla ES6+"],
+["React","#35c9c1","#1a7e78","React","PG Finder and StreakMaster"],
+["Node","#3ddc84","#1f8a50","Node.js","Backend for 3 projects"],
+["Mongo","#3ddc84","#1f8a50","MongoDB","Atlas + Mongoose"],
+["Git","#ff8a3d","#a8501a","Git","Daily use"],
+["AI/ML","#b06cff","#6c37b5","AI and ML","My branch"],
+["Vercel","#e8e8f0","#8b8ca0","Vercel","Frontend hosting"],
+["Cyber","#35c9c1","#1a7e78","Cyber basics","Microsoft Learn"],
+["in","#4f7cff","#2a47b0","LinkedIn","Connect with me","linkedin"],
+["Git\u2192","#e8e8f0","#8b8ca0","GitHub","See my code","github"],
+["@","#ff4d6d","#a32644","Email","Say hello","email"],
+["Gem","#4f7cff","#2a47b0","Gemini","Gemini Academy 2025"],
+["HR","#3ddc84","#1f8a50","HackerRank","2nd Runner-up"]
+];
+var board=document.getElementById("board"),tip=document.getElementById("tip");
+K.forEach(function(k){
+ var l=k[5]&&LINKS[k[5]];
+ var e=document.createElement(l?"a":"button");e.className="key";e.textContent=k[0];
+ e.style.setProperty("--c",k[1]);e.style.setProperty("--d",k[2]);e.setAttribute("aria-label",k[3]);
+ if(l){e.href=k[5]==="email"?"mailto:"+l:l;if(k[5]!=="email")e.target="_blank";e.rel="noopener"}
+ function s(){tip.innerHTML="<b></b> · <span></span>";tip.firstChild.textContent=k[3];tip.lastChild.textContent=k[4];tip.classList.add("on");clearTimeout(window.th);window.th=setTimeout(h,2600)}
+ function h(){tip.classList.remove("on")}
+ e.addEventListener("mouseenter",s);e.addEventListener("focus",s);e.addEventListener("mouseleave",h);e.addEventListener("blur",h);board.appendChild(e);
+});
+var cf=document.getElementById("cf"),cfm=document.getElementById("cfm");
+if(FORM_KEY)cfm.textContent="I will get your message in my inbox.";
+cf.addEventListener("submit",function(ev){
+ ev.preventDefault();var g=function(n){return cf.elements[n].value.trim()};
+ if(FORM_KEY){
+  cfm.textContent="Sending...";
+  fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
+   body:JSON.stringify({access_key:FORM_KEY,name:g("n"),phone:g("p"),email:g("e"),subject:g("s"),message:g("m")})})
+  .then(function(r){return r.json()}).then(function(d){
+   if(d.success){cfm.textContent="Thanks! Your message was sent.";cf.reset()}else{cfm.textContent="Could not send. Please email me directly."}
+  }).catch(function(){cfm.textContent="Could not send. Please email me directly."});
+  return;
+ }
+ var body="Name: "+g("n")+"\nContact: "+g("p")+"\nEmail: "+g("e")+"\n\n"+g("m");
+ window.open("mailto:vickykumar22032006@gmail.com?subject="+encodeURIComponent(g("s"))+"&body="+encodeURIComponent(body),"_blank");
+});
+// Move the keyboard as the page scrolls
+var cur={x:0,y:0,rx:58,rz:-34,s:1},tgt={x:0,y:0,rx:58,rz:-34,s:1};
+var still=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function aim(){
+ var h=document.documentElement,max=Math.max(1,h.scrollHeight-innerHeight),p=Math.min(1,scrollY/max);
+ var wide=innerWidth>760,t=p*Math.PI*2.2;
+ tgt.x=wide?Math.sin(t)*-28:0;
+ tgt.y=wide?Math.min(p*5,1)*4+(p<.08?(1-p/.08)*14:0):(p<.08?10:20);
+ tgt.rx=58-p*26+Math.sin(t)*6;
+ tgt.rz=-34+p*150;
+ tgt.s=(wide?1.15:.9)-p*.2;
+}
+function draw(){
+ var f=still?1:.08;
+ for(var k in cur)cur[k]+=(tgt[k]-cur[k])*f;
+ board.style.transform="translate3d("+cur.x+"vw,"+cur.y+"vh,0) rotateX("+cur.rx+"deg) rotateZ("+cur.rz+"deg) scale("+cur.s+")";
+ requestAnimationFrame(draw);
+}
+addEventListener("scroll",aim,{passive:true});addEventListener("resize",aim);aim();draw();
+var certs=[
+["Programming in C","Univ. of Michigan · Dec 2025","#ffcb05","https://coursera.org/verify/1J9AYAH9Z4Y2"],
+["Intro to HTML, CSS & JavaScript","IBM · Dec 2025","#4f7cff","https://coursera.org/verify/OFOSO2DRA293"],
+["Gemini Academy 2025","Google · Dec 2025","#35c9c1",""],
+["C/C++ Certificate of Excellence","Coding Spoon · Jan 2026","#ff8a3d",""],
+["Python ATM Simulation Project","LetsUpgrade · Feb 2026","#f5c518",""],
+["2nd Runner-up, HackStormXRIU","HackerRank · Apr 2026","#c27a4a",""],
+["Cybersecurity threats and mitigations","Microsoft Learn · Oct 2026","#3ddc84",""]
+];
+var IMG=["assets/c-programming.jpg","assets/html-css-js.jpg","assets/gemini-academy.jpg","assets/coding-spoon.jpg","assets/python-atm.jpg","assets/hackerrank.jpg","assets/microsoft-cyber.jpg"];
+var L=document.getElementById("certList"),LB=document.getElementById("lb");
+LB.onclick=function(){LB.classList.remove("on")};
+[6,5,4,3,1,2,0].forEach(function(i){var c=certs[i];
+ var d=document.createElement("div");d.className="cert";d.style.setProperty("--c",c[2]);
+ var im=document.createElement("img");im.src=IMG[i];im.alt=c[0]+" certificate";im.loading="lazy";im.onclick=function(){LB.firstChild.src=IMG[i];LB.classList.add("on")};d.appendChild(im);
+ var b=document.createElement("b");b.textContent=c[0];var s=document.createElement("span");s.textContent=c[1];
+ d.appendChild(b);d.appendChild(s);
+ if(c[3]){var a=document.createElement("a");a.href=c[3];a.textContent="Verify";d.appendChild(a)}
+ L.appendChild(d);
+});
+</script>
+</body>
+</html>
